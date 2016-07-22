@@ -1,4 +1,6 @@
 # calculator with all buttons
+# Usage:
+#   use Swap button to store input to the other variable
 
 try:
     import simplegui

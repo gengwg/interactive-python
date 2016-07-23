@@ -8,6 +8,7 @@ except ImportError:
 # define draw handler
 def draw(canvas):
     canvas.draw_text("Hello!",[100, 100], 24, "White")
+    # drawing starts from the lower left of the string
     canvas.draw_circle([100, 100], 2, 2, "Red")
 
 # create frame

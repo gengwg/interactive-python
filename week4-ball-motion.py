@@ -11,13 +11,22 @@ HEIGHT = 400
 BALL_RADIUS = 20
 
 ball_pos = [WIDTH / 2, HEIGHT / 2]
-vel = [0, 1]  # pixels per update (1/60 seconds)
+a = 1
+vel = [a * -40.0 / 60.0, a * 5.0 / 60.0]  # pixels per update (1/60 seconds)
 
 def draw(canvas):
 
     # update ball position
     ball_pos[0] += vel[0]
     ball_pos[1] += vel[1]
+
+    # collide and reflect off of left/right hand side of canvas
+    if ball_pos[0] <= BALL_RADIUS or ball_pos[0] >= WIDTH - BALL_RADIUS:
+        vel[0] = - vel[0]
+
+    # collide and reflect off of top/bottom of canvas
+    if ball_pos[1] <= BALL_RADIUS or ball_pos[1] >= HEIGHT - BALL_RADIUS:
+        vel[1] = - vel[1]
 
     # draw ball
     canvas.draw_circle(ball_pos, BALL_RADIUS, 2, "Red", "White")
